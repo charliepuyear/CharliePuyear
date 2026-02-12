@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-yellow: #EDFF20;
+  --color-neon-lime: #C3FF20;
+  --color-dark: #0a0a0a;
+  --color-dark-card: #111111;
+  --color-dark-border: #1a1a1a;
+  --color-dark-surface: #0d0d0d;
+
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background-color: #C3FF20;
+    color: #000000;
+  }
+}
+
+@layer components {
+  .glow-text {
+    text-shadow: 0 0 20px rgba(195, 255, 32, 0.5), 0 0 40px rgba(195, 255, 32, 0.2);
+  }
+
+  .glow-box {
+    box-shadow: 0 0 20px rgba(195, 255, 32, 0.15), 0 0 60px rgba(195, 255, 32, 0.05);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #EDFF20, #C3FF20);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .diagonal-clip {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
+  }
+
+  .diagonal-clip-reverse {
+    clip-path: polygon(0 60px, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .hex-border {
+    position: relative;
+  }
+
+  .hex-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(195, 255, 32, 0.2);
+    clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
+  }
+
+  .corner-cut {
+    clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  }
+
+  .scan-line {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(195, 255, 32, 0.03) 2px,
+      rgba(195, 255, 32, 0.03) 4px
+    );
+  }
+
+  .animated-border {
+    background: linear-gradient(90deg, #C3FF20, #EDFF20, #C3FF20);
+    background-size: 200% 100%;
+    animation: borderShimmer 3s ease-in-out infinite;
+  }
+}
+
+@keyframes borderShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(195, 255, 32, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(195, 255, 32, 0.4);
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.08; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
