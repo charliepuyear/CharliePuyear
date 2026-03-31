@@ -1,24 +1,23 @@
 "use client";
 
-import NXLogo from "./NXLogo";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background grid */}
+      {/* Background car image */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(195, 255, 32, 0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(195, 255, 32, 0.05) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
+        <Image
+          src="/images/car-prototype.jpg"
+          alt="Nexxus eSports prototype race car"
+          fill
+          className="object-cover"
+          priority
         />
-        {/* Radial fade from center */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,black_70%)]" />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60" />
+        {/* Gradient fade at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
       </div>
 
       {/* Diagonal accent line */}
@@ -37,21 +36,19 @@ export default function Hero() {
         {/* Logo */}
         <div className="animate-fade-in-up mb-8 flex justify-center">
           <div className="animate-pulse-glow rounded-full p-6">
-            <NXLogo size={140} />
+            <Image
+              src="/images/logo-full.png"
+              alt="NEXXUS eSPORTS"
+              width={500}
+              height={200}
+              className="object-contain drop-shadow-[0_0_30px_rgba(195,255,32,0.3)]"
+              priority
+            />
           </div>
         </div>
 
-        {/* Team name */}
-        <h1 className="animate-fade-in-up-delay-1 text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter mb-4">
-          <span className="gradient-text">NEXXUS</span>
-          <br />
-          <span className="text-white text-3xl sm:text-4xl md:text-5xl tracking-[0.3em] font-light">
-            eSPORTS
-          </span>
-        </h1>
-
         {/* Tagline */}
-        <p className="animate-fade-in-up-delay-2 text-gray-400 text-lg sm:text-xl md:text-2xl font-light tracking-wide max-w-2xl mx-auto mb-10">
+        <p className="animate-fade-in-up-delay-2 text-gray-300 text-lg sm:text-xl md:text-2xl font-light tracking-wide max-w-2xl mx-auto mb-10">
           Pushing the limits of virtual motorsport.
           <br />
           <span className="text-neon-lime/80">Precision. Speed. Victory.</span>

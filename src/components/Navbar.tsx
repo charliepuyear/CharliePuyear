@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import NXLogo from "./NXLogo";
+import Image from "next/image";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -33,7 +33,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <NXLogo size={44} />
+          <Image
+            src="/images/logo-nx-badge.png"
+            alt="Nexxus eSports"
+            width={44}
+            height={44}
+            className="object-contain"
+          />
           <span className="text-white font-extrabold text-lg tracking-wider hidden sm:inline-block group-hover:text-neon-lime transition-colors">
             NEXXUS
           </span>

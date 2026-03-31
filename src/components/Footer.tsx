@@ -1,6 +1,6 @@
 "use client";
 
-import NXLogo from "./NXLogo";
+import Image from "next/image";
 
 const socialLinks = [
   {
@@ -60,7 +60,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <NXLogo size={36} />
+              <Image
+                src="/images/logo-nx-badge.png"
+                alt="Nexxus eSports"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
               <span className="text-white font-extrabold text-lg tracking-wider">
                 NEXXUS
               </span>

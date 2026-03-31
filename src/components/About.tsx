@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const stats = [
   { value: "2024", label: "Founded" },
   { value: "15+", label: "Active Drivers" },
@@ -47,23 +49,37 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right - Stats Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="relative bg-dark-card border border-dark-border p-8 corner-cut hover:border-neon-lime/30 transition-colors group"
-              >
-                <div className="text-4xl sm:text-5xl font-black gradient-text mb-2">
-                  {stat.value}
+          {/* Right - Car image + Stats */}
+          <div className="space-y-6">
+            {/* Car image */}
+            <div className="relative aspect-video overflow-hidden corner-cut border border-dark-border">
+              <Image
+                src="/images/car-indycar.jpg"
+                alt="Nexxus eSports IndyCar"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="relative bg-dark-card border border-dark-border p-8 corner-cut hover:border-neon-lime/30 transition-colors group"
+                >
+                  <div className="text-4xl sm:text-5xl font-black gradient-text mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-gray-400 tracking-widest uppercase font-semibold">
+                    {stat.label}
+                  </div>
+                  {/* Corner accent */}
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-neon-lime/20 group-hover:border-neon-lime/50 transition-colors" />
                 </div>
-                <div className="text-sm text-gray-400 tracking-widest uppercase font-semibold">
-                  {stat.label}
-                </div>
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-neon-lime/20 group-hover:border-neon-lime/50 transition-colors" />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
